@@ -1,9 +1,10 @@
-# League Broadcast Demo
+# Ryn eSports — League Broadcast
 
-A Vue 3 broadcast overlay built with [`@bluebottle_gg/league-broadcast-client`](https://github.com/BlueBottleGG/leaguebroadcast-js-client). It connects to a running **LeagueBroadcast** server and renders broadcast-ready graphics on a transparent 1920×1080 canvas — designed to be layered over game footage in OBS, vMix, or any streaming tool.
+A premium black-and-electric-blue League of Legends broadcast package built on the existing Vue 3 client for [BlueBottle League Broadcast](https://github.com/BlueBottleGG/leaguebroadcast-js-client). It renders a transparent 1920×1080 overlay for OBS, vMix, or any browser-source capable production tool.
 
-Use this as a starting point for building your own broadcast overlays — add components, swap out styles, and extend to your heart's content.
+**Visual identity:** near-black surfaces, electric blue `#087BFF`, ice-cyan highlights `#00C8FF`, sharp broadcast panels, subtle edge glow and a simple text wordmark: **Ryn eSports**.
 
+The original BlueBottle live-data integration, route structure, champion select, in-game graphics and post-game scenes are retained. See [docs/ryn-brand-system.md](docs/ryn-brand-system.md) for the design rules.
 ## LeagueBroadcast tiers
 
 Not all graphics are available in every LeagueBroadcast tier. The table below shows which tier each component requires.
