@@ -18,7 +18,7 @@ const allInfo = computed(() => [
 
 const currentInfoIndex = ref(0)
 const currentInfo = computed(() => allInfo.value[currentInfoIndex.value] ?? '')
-const infoRotationInterval = 15000 // Rotate info every 15 seconds
+const infoRotationInterval = 15000
 const rotationTimer = ref<number | null>(null)
 
 onMounted(async () => {
@@ -35,15 +35,13 @@ onMounted(async () => {
 })
 
 onUnmounted(() => {
-  if (rotationTimer.value !== null) {
-    clearInterval(rotationTimer.value)
-  }
+  if (rotationTimer.value !== null) clearInterval(rotationTimer.value)
 })
 </script>
 
 <template>
-  <div class="flex flex-row justify-between items-center pl-2.5 pr-10 py-0.5 w-full h-full">
-    <img :src="projectLogo" class="h-7 w-7 object-contain" alt="BlueBottle" />
+  <div class="game-info">
+    <div class="ryn-mark" aria-label="Ryn eSports"><span>RYN</span><i></i></div>
     <div class="info-text-slot">
       <FadeTransition mode="out-in">
         <span :key="currentInfoIndex" class="patch-text">{{ currentInfo }}</span>
@@ -53,7 +51,36 @@ onUnmounted(() => {
 </template>
 
 <style lang="css" scoped>
-.ryn-mark {\n  display: flex;\n  align-items: center;\n  gap: 5px;\n  color: #f4f7fb;\n  font-size: 17px;\n  line-height: 1;\n  font-weight: 900;\n  letter-spacing: 0.12em;\n}\n\n.ryn-mark i {\n  display: block;\n  width: 3px;\n  height: 15px;\n  background: #258dff;\n  transform: skew(-18deg);\n}\n\n.info-text-slot {
+.game-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 0 12px;
+  box-sizing: border-box;
+}
+
+.ryn-mark {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #f4f7fb;
+  font-size: 17px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.ryn-mark i {
+  display: block;
+  width: 3px;
+  height: 15px;
+  background: #258dff;
+  transform: skew(-18deg);
+}
+
+.info-text-slot {
   display: grid;
   justify-items: end;
   align-items: center;
@@ -62,11 +89,11 @@ onUnmounted(() => {
 
 .patch-text {
   grid-area: 1 / 1;
-  color: white;
+  color: #dce8f7;
   font-size: 17px;
   line-height: 1;
   font-weight: 800;
-  font-weight: bold;
+  letter-spacing: 0.04em;
   white-space: nowrap;
 }
 </style>
