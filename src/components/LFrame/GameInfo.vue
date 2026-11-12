@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useIngameSelector } from '@/composables/useIngame'
-import projectLogo from '@/assets/blue_bottle-logo-color-bright_outline.svg?url'
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import FadeTransition from '../../transitions/FadeTransition.vue'
 import { useClient } from '@/client'
@@ -54,7 +53,7 @@ onUnmounted(() => {
 </template>
 
 <style lang="css" scoped>
-.info-text-slot {
+.ryn-mark {\n  display: flex;\n  align-items: center;\n  gap: 5px;\n  color: #f4f7fb;\n  font-size: 17px;\n  line-height: 1;\n  font-weight: 900;\n  letter-spacing: 0.12em;\n}\n\n.ryn-mark i {\n  display: block;\n  width: 3px;\n  height: 15px;\n  background: #258dff;\n  transform: skew(-18deg);\n}\n\n.info-text-slot {
   display: grid;
   justify-items: end;
   align-items: center;
@@ -64,7 +63,7 @@ onUnmounted(() => {
 .patch-text {
   grid-area: 1 / 1;
   color: white;
-  font-size: 20px;
+  font-size: 17px;
   line-height: 1;
   font-weight: 800;
   font-weight: bold;
