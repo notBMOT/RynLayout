@@ -45,19 +45,20 @@ const showInhibitorTimers = computed(() =>
   /* Header/footer trimmed by 4px/10px vs. the previous 38/114 to hand the champion-detail
      panel more vertical room top and bottom. GameInfo and SponsorRotation drop their internal
      vertical padding by the same amounts so the patch bar and sponsor logos render unchanged. */
-  grid-template-rows: 34px 1fr 104px;
+  grid-template-rows: 38px 1fr 30px;
   grid-template-columns: 1fr;
   z-index: 100;
 }
 
 .lframe-header {
-  background-color: black;
+  background: linear-gradient(90deg, #080d16, #05070b);
+  border-bottom: 1px solid rgba(46, 145, 255, 0.55);
 }
 
 /* Solid project-accent surface behind the sponsor rotation. */
 .lframe-footer {
-  /* background-color: var(--broadcast-accent); */
-  background-color: black;
+  background: linear-gradient(90deg, #080d16, #05070b);
+  border-top: 1px solid rgba(46, 145, 255, 0.42);
 }
 
 #champion-info-cutout {

@@ -3,7 +3,6 @@ import { computed } from 'vue'
 import type { championSelectTeam } from '@bluebottle_gg/league-broadcast-client'
 import { useClient } from '@/client'
 import { handleImageError, handleImageLoad } from '@/utils/imageUtils'
-import projectLogo from '@/assets/blue_bottle-logo-color-bright_outline.svg?url'
 
 const props = defineProps<{
   blueTeam: championSelectTeam
@@ -64,8 +63,10 @@ function dotFilled(team: championSelectTeam, i: number) {
       </div>
     </div>
 
-    <!-- title sponsor between the teams (order puts it visually in the middle) -->
-    <img class="brand-center" :src="projectLogo" alt="BlueBottle" />
+    <div class="brand-center" aria-label="Ryn eSports">
+      <span>RYN</span>
+      <small>ESPORTS</small>
+    </div>
   </div>
 </template>
 
@@ -75,19 +76,11 @@ function dotFilled(team: championSelectTeam, i: number) {
   display: flex;
   height: 100%;
   padding: 0 4px;
-  /* the center panel carries its own backing (the pick-strip has none of its
-     own) so the dark plate rides in with it as it pops up; opaque like the
-     pick cards flanking it */
   background: rgb(4 6 10 / 0.9);
-  /* interior corners only — rounds against the pick strip's dark backing */
   border-radius: 6px 6px 0 0;
   box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.55);
 }
 
-/* A short centered project-accent tick on the panel's bottom edge.
-   The top edge is reserved for the
-   phase timer's team-colored fill runs directly along it; down here the tick
-   only meets black panel above and the screen edge below. */
 .center-panel::before {
   content: '';
   position: absolute;
@@ -99,9 +92,6 @@ function dotFilled(team: championSelectTeam, i: number) {
   background: var(--broadcast-accent);
 }
 
-/* halves narrower than before: the sponsor mark takes the middle column, and
-   the panel's total width must stay what it was with the two 168px halves
-   (2×124 + 88 + 2×4 = 344px) so the pick cards keep their area */
 .half {
   width: 124px;
   display: flex;
@@ -110,22 +100,39 @@ function dotFilled(team: championSelectTeam, i: number) {
   padding: 10px 8px 8px;
 }
 
-.half.blue {
-  order: 1;
-}
+.half.blue { order: 1; }
+.half.red { order: 3; }
 
-.half.red {
-  order: 3;
-}
-
-/* Project mark between the teams replaces the old center divider. */
 .brand-center {
   order: 2;
   align-self: center;
   width: 88px;
   height: 88px;
-  border-radius: 6px;
-  box-shadow: 0 6px 18px rgb(0 0 0 / 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  border-left: 1px solid rgb(255 255 255 / 0.12);
+  border-right: 1px solid rgb(255 255 255 / 0.12);
+  color: #fff;
+}
+
+.brand-center span {
+  font-size: 27px;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  line-height: 0.9;
+  padding-left: 0.1em;
+  text-shadow: 0 0 12px rgb(8 123 255 / 0.55);
+}
+
+.brand-center small {
+  color: var(--broadcast-accent-bright);
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.28em;
+  padding-left: 0.28em;
 }
 
 .dots {
@@ -141,31 +148,19 @@ function dotFilled(team: championSelectTeam, i: number) {
   border-radius: 50%;
   background: rgba(120, 130, 145, 0.55);
   transform: scale(0.8);
-  transition:
-    transform 0.3s ease,
-    background 0.3s ease;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
-.blue .dot.filled {
-  background: var(--blue-team-color);
-  transform: scale(1);
-}
-
-.red .dot.filled {
-  background: var(--red-team-color);
-  transform: scale(1);
-}
+.blue .dot.filled { background: var(--blue-team-color); transform: scale(1); }
+.red .dot.filled { background: var(--red-team-color); transform: scale(1); }
 
 .icon-wrap {
   position: relative;
   width: 100px;
   height: 100px;
-  /* names live in a full-width bottom row of their own (see .name-block), so
-     the icon centers itself between the dots and the panel bottom */
   margin: auto 0;
 }
 
-/* contain + margin-auto: centered, never crops square logos */
 .team-icon {
   position: absolute;
   inset: 0;
@@ -185,10 +180,6 @@ function dotFilled(team: championSelectTeam, i: number) {
   background: radial-gradient(circle at 50% 35%, rgba(30, 41, 59, 0.9), rgba(6, 9, 15, 0.95));
 }
 
-/* each name gets its half's width PLUS half the center column: anchored to the
-   panel edges (the .half boxes aren't positioned, so these resolve against the
-   panel itself), the two rows meet in the middle under the sponsor mark. Blue
-   reads outward-in from the left, red mirrors from the right. */
 .name-block {
   position: absolute;
   bottom: 10px;
@@ -198,47 +189,26 @@ function dotFilled(team: championSelectTeam, i: number) {
   gap: 2px;
 }
 
-.half.blue .name-block {
-  left: 12px;
-  align-items: flex-start;
-  text-align: left;
-}
-
-.half.red .name-block {
-  right: 12px;
-  align-items: flex-end;
-  text-align: right;
-}
+.half.blue .name-block { left: 12px; align-items: flex-start; text-align: left; }
+.half.red .name-block { right: 12px; align-items: flex-end; text-align: right; }
 
 .team-name {
   font-weight: 900;
   line-height: 1;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  color: #ffffff;
-  /* Short names stay centered over the team icon: the 116px minimum matches
-     the half's inner width, and centered text in it lines up with the icon.
-     Longer names grow out of that zone toward the panel center (the block
-     anchors them at the outer edge) before any clipping happens. */
+  color: #fff;
   min-width: 116px;
   max-width: 100%;
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  /* names too long for even the full run shrink instead of clipping:
-     230px/len approximates bold display caps filling the ~156px row; the 24px
-     display size stays the cap for everything that fits */
   font-size: clamp(14px, calc(230px / var(--tn-len, 8)), 24px);
 }
 
-.blue .team-name {
-  color: color-mix(in oklch, var(--blue-team-color) 65%, #ffffff);
-}
-
-.red .team-name {
-  color: color-mix(in oklch, var(--red-team-color) 65%, #ffffff);
-}
+.blue .team-name { color: color-mix(in oklch, var(--blue-team-color) 65%, #fff); }
+.red .team-name { color: color-mix(in oklch, var(--red-team-color) 65%, #fff); }
 
 .team-record {
   font-weight: 700;
@@ -246,7 +216,6 @@ function dotFilled(team: championSelectTeam, i: number) {
   letter-spacing: 1px;
   color: rgb(255 255 255 / 0.65);
   line-height: 1;
-  /* always centered under the team icon, regardless of how far the name grew */
   width: 116px;
   text-align: center;
 }

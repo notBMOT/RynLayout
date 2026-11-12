@@ -359,7 +359,7 @@ function runeIcon(rune: championRuneStat): string {
   gap: 3px;
   padding: 4px 7px;
   /* Solid black, no border — seamlessly fills the LFrame cutout slot. */
-  background: #000;
+  background: linear-gradient(135deg, #080d16 0%, #05070b 72%);\n  border-left: 2px solid rgba(37, 141, 255, 0.72);
   font-family: 'Bebas Neue', sans-serif;
   color: #f2ead7;
   box-sizing: border-box;
@@ -562,7 +562,7 @@ function runeIcon(rune: championRuneStat): string {
   position: relative;
   min-height: 16px;
   padding-top: 1px;
-  border-top: var(--brand-border-width) solid var(--border-color);
+  border-top: 1px solid rgba(37, 141, 255, 0.38);
 }
 
 /* Compact single row of six cells spanning the panel width. */
