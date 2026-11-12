@@ -127,7 +127,8 @@ const objectiveDamageVisible = useIngameSelector(
     <SmiteReaction class="overlay-smitereaction" />
     <KillFeed class="overlay-killfeed" />
     <Announcer class="overlay-announcer" />
-    <!-- <PlayerCameras class="overlay-playercameras" /> -->
+    <!-- Rotating player portraits / live camera feeds at both lower corners. -->
+    <PlayerCameras class="overlay-playercameras" />
     <!-- Recap / teamfight and Damage Flow take priority over KP; KP takes over the other charts. -->
     <GoldGraph
       v-if="
