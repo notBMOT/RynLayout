@@ -12,7 +12,6 @@ const isMocking = useIngameSelector((s) => (s.gameState as number) === GameState
 
 const blue = computed(() => scoreboard.value?.teams[0])
 const red = computed(() => scoreboard.value?.teams[1])
-
 const bluePlayers = computed(() => players.value?.teams[0]?.players || [])
 const redPlayers = computed(() => players.value?.teams[1]?.players || [])
 
@@ -62,10 +61,10 @@ const gameTime = computed(() => {
 
 <style scoped>
 .scoreboard {
-  width: 960px;
+  width: 920px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
 }
 
 .row-clip {
@@ -99,88 +98,66 @@ const gameTime = computed(() => {
 }
 
 .top-row {
-  height: 66px;
-  background:
-    linear-gradient(105deg, rgb(8 123 255 / 0.12), transparent 35%, transparent 65%, rgb(0 200 255 / 0.1)),
-    var(--surface-strong);
-  border-radius: var(--radius-lg);
+  height: 64px;
+  background: var(--surface-strong);
   border: var(--brand-border-width) solid var(--border-color);
-  box-shadow: var(--brand-glow), inset 0 1px 0 rgb(255 255 255 / 0.06);
+  border-radius: var(--radius-md);
+  box-shadow: var(--brand-glow);
   overflow: hidden;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 92px minmax(0, 1fr);
-  grid-template-rows: 66px;
+  grid-template-columns: minmax(0, 1fr) 64px minmax(0, 1fr);
+  grid-template-rows: 64px;
 }
 
 .center-brand {
   grid-column: 2;
-  align-self: stretch;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0;
-  position: relative;
-  background: linear-gradient(180deg, rgb(8 123 255 / 0.16), rgb(7 10 16 / 0.9));
-  border-left: 1px solid rgb(0 200 255 / 0.38);
-  border-right: 1px solid rgb(0 200 255 / 0.38);
+  background: linear-gradient(180deg, rgb(8 123 255 / 0.13), transparent);
+  border-left: 1px solid rgb(0 200 255 / 0.28);
+  border-right: 1px solid rgb(0 200 255 / 0.28);
 }
-
-.center-brand::before,
-.center-brand::after {
-  content: '';
-  position: absolute;
-  width: 7px;
-  height: 7px;
-  background: var(--broadcast-accent-bright);
-  box-shadow: 0 0 10px var(--broadcast-accent);
-  transform: rotate(45deg);
-}
-
-.center-brand::before { top: 7px; }
-.center-brand::after { bottom: 7px; }
 
 .brand-name {
   color: #fff;
-  font-family: 'Bebas Neue', system-ui, sans-serif;
-  font-size: 31px;
+  font-size: 25px;
   font-weight: 900;
-  letter-spacing: 0.13em;
-  line-height: 0.9;
-  text-shadow: 0 0 14px rgb(8 123 255 / 0.75);
-  padding-left: 0.13em;
+  letter-spacing: 0.08em;
+  line-height: 0.95;
+  text-shadow: 0 1px 8px rgb(8 123 255 / 0.4);
+  padding-left: 0.08em;
 }
 
 .brand-subtitle {
   color: var(--broadcast-accent-bright);
   font-family: system-ui, sans-serif;
-  font-size: 8px;
+  font-size: 7px;
   font-weight: 800;
-  letter-spacing: 0.34em;
+  letter-spacing: 0.24em;
   line-height: 1.5;
-  padding-left: 0.34em;
+  padding-left: 0.24em;
 }
 
 .bottom-row {
-  height: 34px;
-  background: linear-gradient(90deg, rgb(8 123 255 / 0.11), var(--surface-soft) 28%, var(--surface-soft) 72%, rgb(0 200 255 / 0.09));
-  border: 1px solid rgb(8 123 255 / 0.32);
-  border-radius: var(--radius-md);
-  box-sizing: border-box;
+  height: 32px;
+  background: var(--surface-soft);
+  border: 1px solid rgb(8 123 255 / 0.3);
+  border-radius: var(--radius-sm);
   overflow: hidden;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 92px minmax(0, 1fr);
-  grid-template-rows: 32px;
+  grid-template-columns: minmax(0, 1fr) 64px minmax(0, 1fr);
+  grid-template-rows: 30px;
 }
 
 .game-time {
   margin: 0;
   line-height: 1;
   color: #fff;
-  font-size: 24px;
+  font-size: 21px;
   font-weight: 800;
   justify-self: center;
   align-self: center;
-  text-shadow: 0 0 12px rgb(8 123 255 / 0.65);
 }
 </style>
