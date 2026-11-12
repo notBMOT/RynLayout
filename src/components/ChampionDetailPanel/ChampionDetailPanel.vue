@@ -356,13 +356,12 @@ function runeIcon(rune: championRuneStat): string {
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  padding: 4px 7px;
-  /* Solid black, no border — seamlessly fills the LFrame cutout slot. */
-  background: linear-gradient(135deg, #080d16 0%, #05070b 72%);
-  border-left: 2px solid rgba(37, 141, 255, 0.72);
+  gap: 4px;
+  padding: 5px 8px;
+  background: rgba(5, 8, 14, 0.97);
+  border-left: 1px solid rgba(8, 123, 255, 0.7);
   font-family: 'Bebas Neue', sans-serif;
-  color: #f2ead7;
+  color: #eaf2ff;
   box-sizing: border-box;
   transition: box-shadow 0.4s ease-out;
 }
@@ -370,14 +369,14 @@ function runeIcon(rune: championRuneStat): string {
 /* ---------------- Big-burst accent ---------------- */
 /* One-shot edge vignette pulse, fired only on sudden large cumulative damage; fades out over 0.4s. */
 #champion-detail-panel.is-burst {
-  box-shadow: inset 0 0 26px 4px rgba(224, 40, 30, 0.55);
+  box-shadow: inset 0 0 12px 1px rgba(224, 40, 30, 0.28);
   transition: box-shadow 0.4s ease-out;
 }
 
 /* ---------------- Top row ---------------- */
 .top-row {
   display: flex;
-  gap: 6px;
+  gap: 7px;
   min-height: 0;
 }
 
@@ -387,12 +386,10 @@ function runeIcon(rune: championRuneStat): string {
   flex-shrink: 0;
   align-self: stretch;
   aspect-ratio: 1;
-  border-radius: 3px;
+  border-radius: 2px;
   overflow: hidden;
-  background: #0c0f0d;
-  box-shadow:
-    0 2px 5px rgba(0, 0, 0, 0.55),
-    0 0 0 1px rgba(0, 0, 0, 0.3);
+  background: #090e17;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.08);
 }
 
 .portrait-img {
@@ -419,7 +416,7 @@ function runeIcon(rune: championRuneStat): string {
   border-radius: 3px;
   font-size: 10px;
   line-height: 12px;
-  color: #f2ead7;
+  color: #eaf2ff;
 }
 
 .death-overlay {
@@ -562,8 +559,8 @@ function runeIcon(rune: championRuneStat): string {
 .stat-area {
   position: relative;
   min-height: 16px;
-  padding-top: 1px;
-  border-top: 1px solid rgba(37, 141, 255, 0.38);
+  padding-top: 3px;
+  border-top: 1px solid rgba(8, 123, 255, 0.28);
 }
 
 /* Compact single row of six cells spanning the panel width. */
