@@ -359,7 +359,8 @@ function runeIcon(rune: championRuneStat): string {
   gap: 3px;
   padding: 4px 7px;
   /* Solid black, no border — seamlessly fills the LFrame cutout slot. */
-  background: linear-gradient(135deg, #080d16 0%, #05070b 72%);\n  border-left: 2px solid rgba(37, 141, 255, 0.72);
+  background: linear-gradient(135deg, #080d16 0%, #05070b 72%);
+  border-left: 2px solid rgba(37, 141, 255, 0.72);
   font-family: 'Bebas Neue', sans-serif;
   color: #f2ead7;
   box-sizing: border-box;
