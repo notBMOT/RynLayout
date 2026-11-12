@@ -64,7 +64,7 @@ const gameTime = computed(() => {
   width: 920px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
 }
 
 .row-clip {
@@ -98,15 +98,15 @@ const gameTime = computed(() => {
 }
 
 .top-row {
-  height: 64px;
+  height: 62px;
   background: var(--surface-strong);
   border: var(--brand-border-width) solid var(--border-color);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   box-shadow: var(--brand-glow);
   overflow: hidden;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 64px minmax(0, 1fr);
-  grid-template-rows: 64px;
+  grid-template-rows: 62px;
 }
 
 .center-brand {
@@ -115,47 +115,46 @@ const gameTime = computed(() => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(180deg, rgb(8 123 255 / 0.13), transparent);
-  border-left: 1px solid rgb(0 200 255 / 0.28);
-  border-right: 1px solid rgb(0 200 255 / 0.28);
+  background: rgb(8 123 255 / 0.07);
+  border-left: 1px solid rgb(0 200 255 / 0.2);
+  border-right: 1px solid rgb(0 200 255 / 0.2);
 }
 
 .brand-name {
   color: #fff;
-  font-size: 25px;
+  font-size: 24px;
   font-weight: 900;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
   line-height: 0.95;
-  text-shadow: 0 1px 8px rgb(8 123 255 / 0.4);
-  padding-left: 0.08em;
+  padding-left: 0.14em;
 }
 
 .brand-subtitle {
   color: var(--broadcast-accent-bright);
   font-family: system-ui, sans-serif;
   font-size: 7px;
-  font-weight: 800;
-  letter-spacing: 0.24em;
-  line-height: 1.5;
-  padding-left: 0.24em;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  line-height: 1.6;
+  padding-left: 0.28em;
 }
 
 .bottom-row {
-  height: 32px;
+  height: 30px;
   background: var(--surface-soft);
-  border: 1px solid rgb(8 123 255 / 0.3);
-  border-radius: var(--radius-sm);
+  border: 1px solid rgb(8 123 255 / 0.22);
+  border-radius: var(--radius-xs);
   overflow: hidden;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 64px minmax(0, 1fr);
-  grid-template-rows: 30px;
+  grid-template-rows: 28px;
 }
 
 .game-time {
   margin: 0;
   line-height: 1;
   color: #fff;
-  font-size: 21px;
+  font-size: 20px;
   font-weight: 800;
   justify-self: center;
   align-self: center;
