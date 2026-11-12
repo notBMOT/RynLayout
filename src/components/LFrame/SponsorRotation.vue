@@ -1,50 +1,28 @@
-<script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue'
-import leagueBroadcastLogo from '@/assets/leaguebroadcast-logo_text-color-bright_outline.png'
-import blueBottleLogo from '@/assets/blue_bottle-logo-color-bright_outline.svg?url'
-import FadeTransition from '../../transitions/FadeTransition.vue'
-
-const sponsorLogos = [leagueBroadcastLogo, blueBottleLogo]
-const currentLogoIndex = ref(0)
-const logoRotationInterval = 15000 // Rotate logo every 15 seconds
-const rotationTimer = ref<number | null>(null)
-
-onMounted(() => {
-  rotationTimer.value = setInterval(() => {
-    currentLogoIndex.value = (currentLogoIndex.value + 1) % sponsorLogos.length
-  }, logoRotationInterval)
-})
-
-onUnmounted(() => {
-  if (rotationTimer.value !== null) {
-    clearInterval(rotationTimer.value)
-  }
-})
-</script>
-
 <template>
-  <div class="logo-slot w-full h-full">
-    <FadeTransition mode="out-in">
-      <img :key="currentLogoIndex" :src="sponsorLogos[currentLogoIndex]" class="sponsor-logo" />
-    </FadeTransition>
+  <div class="ryn-footer">
+    <span class="footer-rule"></span>
+    <span class="footer-name">RYN <b>ESPORTS</b></span>
+    <span class="footer-live"><i></i> PLAYER SPOTLIGHT</span>
   </div>
 </template>
 
 <style lang="css" scoped>
-.logo-slot {
-  display: grid;
-  grid-template-rows: 100%;
-  grid-template-columns: 100%;
-  overflow: hidden;
-  /* Vertical padding cut 18px -> 13px to match the 10px-shorter footer, so the logo's
-     content box (footer height - 2*padding) is unchanged and the mark renders the same size. */
-  padding: 13px 24px;
-}
-
-.sponsor-logo {
-  grid-area: 1 / 1;
+.ryn-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  padding: 0 10px;
+  box-sizing: border-box;
+  color: #dce8f7;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.12em;
+  font-size: 13px;
 }
+.footer-rule { width: 18px; height: 2px; background: #258dff; }
+.footer-name { color: #fff; font-weight: 700; }
+.footer-name b { color: #258dff; font-weight: 400; }
+.footer-live { margin-left: auto; display: flex; align-items: center; gap: 5px; color: #8fa4bd; font-size: 10px; letter-spacing: 0.14em; }
+.footer-live i { width: 5px; height: 5px; border-radius: 50%; background: #258dff; box-shadow: 0 0 7px #258dff; }
 </style>
