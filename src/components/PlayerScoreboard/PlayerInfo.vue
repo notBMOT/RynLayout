@@ -258,7 +258,8 @@ const resourceColor = computed(() => {
   gap: 0px;
   padding: 4px;
   border-inline-start: var(--brand-border-width) solid var(--border-color);
-  overflow: hidden;
+  overflow: visible;
+  position: relative;
 }
 
 #player-info-container.mirror {
