@@ -57,12 +57,11 @@ defineProps<{
 }
 
 .accent {
-  width: 6px;
+  width: 3px;
   align-self: stretch;
   min-height: 44px;
-  border-radius: var(--radius-pill);
+  border-radius: 1px;
   background: var(--broadcast-accent);
-  box-shadow: 0 0 16px color-mix(in oklab, var(--broadcast-accent) 60%, transparent);
 }
 
 .titles {
