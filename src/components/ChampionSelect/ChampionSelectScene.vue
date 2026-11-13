@@ -622,7 +622,7 @@ watch(isActive, (active) => {
   /* flush, edge-to-edge strip with its own dark backing (same tone as the
      timer bar above it): the cards' rounded top corners open tiny notches at
      each seam, and those must show this backing — never the studio background */
-  background: rgb(0 0 0 / 0.85);
+  background: var(--broadcast-ink);
 }
 
 .picks {
@@ -663,7 +663,7 @@ watch(isActive, (active) => {
   inset: 0;
   z-index: 3;
   overflow: hidden;
-  background: rgb(0 0 0 / 0.85);
+  background: var(--broadcast-ink);
   pointer-events: none;
 }
 .bf-art {
