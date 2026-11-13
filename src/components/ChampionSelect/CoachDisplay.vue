@@ -71,8 +71,8 @@ watch(lockedCount, (next, prev) => {
   gap: 2px;
   height: 48px;
   padding: 0 14px;
-  background: rgb(0 0 0 / 0.8);
-  border: 1px solid rgb(255 255 255 / 0.14);
+  background: var(--surface-strong);
+  border: var(--brand-border-width) solid var(--border-color);
   border-radius: 3px;
 }
 
