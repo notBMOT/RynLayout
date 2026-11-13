@@ -75,6 +75,7 @@ function dotFilled(team: championSelectTeam, i: number) {
   position: relative;
   display: flex;
   height: 100%;
+  box-sizing: border-box;
   padding: 0 4px;
   background: var(--surface-strong);
   border: var(--brand-border-width) solid var(--border-color);
