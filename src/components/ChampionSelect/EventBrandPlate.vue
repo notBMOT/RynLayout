@@ -96,10 +96,10 @@ const currentPartnerLogo = computed(() => CHAMPION_SELECT_PARTNER_LOGOS[logoInde
   gap: 20px;
   height: 52px;
   padding: 0 26px;
-  background: linear-gradient(to top, rgb(0 0 0 / 0.94), rgb(0 0 0 / 0.82));
+  background: var(--surface-strong);
   border-top: 2px solid var(--broadcast-accent);
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  box-shadow: 0 -6px 14px rgb(0 0 0 / 0.5);
+  box-shadow: 0 -4px 12px rgb(0 0 0 / 0.35);
 }
 
 /* explicit heights everywhere — the marks must render at a fixed, predictable

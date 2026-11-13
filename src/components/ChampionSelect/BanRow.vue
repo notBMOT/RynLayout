@@ -52,11 +52,11 @@ const cacheUrl = (path?: string) => client.getCacheUrl(path)
   height: 48px;
   border-radius: 3px;
   overflow: hidden;
-  background: rgb(0 0 0 / 0.7);
-  border: 1px solid rgb(255 255 255 / 0.14);
+  background: var(--surface-strong);
+  border: var(--brand-border-width) solid var(--border-color);
 }
 .ban-slot.empty {
-  background: rgb(0 0 0 / 0.8);
+  background: var(--broadcast-ink);
 }
 
 /* full colour while the ban is active/hovered; desaturates only once the ban

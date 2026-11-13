@@ -75,10 +75,13 @@ function dotFilled(team: championSelectTeam, i: number) {
   position: relative;
   display: flex;
   height: 100%;
+  box-sizing: border-box;
   padding: 0 4px;
-  background: rgb(4 6 10 / 0.9);
+  background: var(--surface-strong);
+  border: var(--brand-border-width) solid var(--border-color);
+  border-bottom: 0;
   border-radius: 6px 6px 0 0;
-  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 -4px 14px rgb(0 0 0 / 0.35);
 }
 
 .center-panel::before {

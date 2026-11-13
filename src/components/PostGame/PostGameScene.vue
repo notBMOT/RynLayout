@@ -213,20 +213,12 @@ const shouldShowScene = computed(() =>
   justify-content: center;
 }
 
-/* Opaque presentation backdrop — post game is a full-screen scene, not an overlay over
-   game footage: project black with a faint accent floor glow and a soft
-   top light so the panels sit on visible depth. */
+/* Post-game is an opaque full-screen scene, separate from the transparent live-game overlay. */
 .backdrop {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(
-      1100px 480px at 50% 108%,
-      color-mix(in oklab, var(--broadcast-accent) 16%, transparent),
-      transparent 65%
-    ),
-    radial-gradient(1400px 700px at 50% -12%, rgb(255 255 255 / 0.05), transparent 60%),
-    linear-gradient(to bottom, #131316, #070708);
+  background: var(--broadcast-ink);
+  box-shadow: inset 0 0 0 1px rgb(8 123 255 / 0.1);
 }
 
 /* Absolute-inset stage the full-bleed screens position themselves inside; the

@@ -101,8 +101,9 @@ const iconSize = computed(() => (maxGroups.value <= 3 ? 36 : 30))
   min-height: 52px;
   width: 100%;
   padding: 5px 20px;
-  background: linear-gradient(to bottom, rgb(0 0 0 / 0.94), rgb(0 0 0 / 0.78));
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
+  background: var(--surface-strong);
+  border-bottom: 1px solid rgb(8 123 255 / 0.18);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.35);
 }
 
 .side {

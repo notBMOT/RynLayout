@@ -184,7 +184,7 @@ const stats = computed(() => {
   /* opaque backing on every card, empty or not — the studio background must
      never bleed through the pick strip. Corner rounding shows against the
      strip's own dark backing, never against the studio background. */
-  background: rgb(0 0 0 / 0.78);
+  background: var(--surface-strong);
   border-radius: 6px 6px 0 0;
   flex-grow: var(--grow-inactive, 1);
   /* Matching curves keep the row's total flex allocation stable while the

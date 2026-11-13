@@ -41,7 +41,8 @@ interface Row {
   redKda: string
   blueWon: boolean
   redWon: boolean
-  scoreLabel: string
+  blueScore: number
+  redScore: number
 }
 
 function kda(s?: matchOverviewTeamSummary): string {
@@ -72,7 +73,8 @@ const rows = computed<Row[]>(() => {
       redKda: kda(red),
       blueWon,
       redWon,
-      scoreLabel: `${blueScore}–${redScore}`,
+      blueScore,
+      redScore,
     }
   })
 })
@@ -123,7 +125,11 @@ const hasData = computed(() => rows.value.length > 0)
           <span class="game-label">Game {{ row.gameNumber }}</span>
           <span v-if="row.complete" class="game-clock">{{ formatGameClock(row.gameTime) }}</span>
           <span v-else class="upcoming">Upcoming</span>
-          <span class="series-score">{{ row.scoreLabel }}</span>
+          <span class="series-score">
+            <span class="series-blue">{{ row.blueScore }}</span>
+            <span class="series-separator">–</span>
+            <span class="series-red">{{ row.redScore }}</span>
+          </span>
         </div>
 
         <!-- red side -->
@@ -150,14 +156,15 @@ const hasData = computed(() => rows.value.length > 0)
 
 <style scoped>
 .bo-chip {
-  padding: 8px 18px;
-  font-size: 15px;
+  padding: 7px 14px;
+  font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: white;
-  background: var(--broadcast-accent);
-  border-radius: var(--radius-pill);
+  color: var(--broadcast-accent-bright);
+  background: var(--surface-soft);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
 }
 
 .rows,
@@ -291,11 +298,25 @@ const hasData = computed(() => rows.value.length > 0)
   color: rgb(255 255 255 / 0.5);
 }
 .series-score {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   margin-top: 4px;
   font-size: 26px;
   font-weight: 900;
-  color: var(--broadcast-accent);
   font-variant-numeric: tabular-nums;
+}
+
+.series-blue {
+  color: var(--blue-team-color);
+}
+
+.series-red {
+  color: var(--red-team-color);
+}
+
+.series-separator {
+  color: rgb(255 255 255 / 0.35);
 }
 
 /* ── Empty ── */

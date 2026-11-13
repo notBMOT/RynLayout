@@ -20,6 +20,13 @@ A minimal, premium esports package built for a transparent 1920×1080 OBS browse
 - Prefer near-black panels, precise blue keylines, small cyan highlights and generous negative space.
 - Keep text uppercase and compact, with tabular numerals for game statistics.
 - Motion should be quick and restrained; honor reduced-motion preferences.
+- Reserve electric blue/cyan for the Ryn wordmark, neutral keylines and active UI accents. Winner and advantage states use the corresponding blue-side or red-side team color.
+- Keep project branding as plain-text RYN / ESPORTS. Event-supplied marks may appear separately, but must not replace the Ryn identity.
+
+## Scene styling
+
+- **Champion select:** use the shared near-black surfaces for the pick strip, cards, bans and event plate. Blue/red remain attached to their respective teams and pick/ban state; the center wordmark remains the Ryn project identity.
+- **Post-game:** the full-screen scene is opaque on --broadcast-ink; result panels use the same dark surfaces and fine blue keylines as the in-game scoreboard. Keep the event name and patch secondary to the plain-text Ryn lockup.
 
 ## Overlay architecture
 
