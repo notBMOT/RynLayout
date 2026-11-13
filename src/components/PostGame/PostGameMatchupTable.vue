@@ -233,8 +233,12 @@ const hasData = computed(() => cards.value.length > 0)
   text-transform: uppercase;
   color: white;
 }
-.team-tag.winner {
-  color: var(--broadcast-accent);
+.team-left .team-tag.winner {
+  color: var(--blue-team-color);
+}
+
+.team-right .team-tag.winner {
+  color: var(--red-team-color);
 }
 
 .vs {
