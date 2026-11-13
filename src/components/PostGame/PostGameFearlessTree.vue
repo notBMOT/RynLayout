@@ -232,9 +232,10 @@ const hasData = computed(() => nodes.value.length > 0)
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: white;
-  background: var(--broadcast-accent);
-  border-radius: var(--radius-pill);
+  color: var(--broadcast-accent-bright);
+  background: var(--surface-soft);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
 }
 
 .current-block {
