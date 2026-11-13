@@ -226,9 +226,14 @@ const leadRed = (row: StatRow) => !row.neutral && row.redRaw > row.blueRaw
   text-align: left;
 }
 
-.value.lead,
-.drake-count.lead {
-  color: var(--broadcast-accent);
+.value-blue.lead,
+.value-blue .drake-count.lead {
+  color: var(--blue-team-color);
+}
+
+.value-red.lead,
+.value-red .drake-count.lead {
+  color: var(--red-team-color);
 }
 
 .label {
