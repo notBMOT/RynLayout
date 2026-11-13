@@ -36,6 +36,13 @@ const router = createRouter({
       props: { variant: 'hybrid' },
     },
     { path: '/postgame', name: 'postgame', component: () => import('@/views/PostgameView.vue') },
+
+    // Standalone Ryn studio scenes for OBS / vMix browser sources.
+    {
+      path: '/broadcast/:scene(pre-stream|casters|interview|post-game)',
+      name: 'ryn-studio',
+      component: () => import('@/views/RynStudioView.vue'),
+    },
     { path: '/ingame/elements', name: 'elements', component: ElementIndexView },
     { path: '/ingame/element/:slug', name: 'element', component: ElementView },
   ],
