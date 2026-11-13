@@ -92,11 +92,18 @@ const clock = computed(() => formatGameClock(props.overview.gameTime))
       </div>
     </div>
 
-    <!-- Event banner -->
+    <!-- Event and project identity -->
     <div class="banner">
-      <span class="banner-text">{{ eventName || 'LEAGUE BROADCAST' }}</span>
-      <span v-if="overview.patch" class="banner-sep">|</span>
-      <span v-if="shortPatch" class="banner-text banner-patch">Patch {{ shortPatch }}</span>
+      <div class="ryn-lockup" aria-label="Ryn eSports">
+        <span class="ryn-name">RYN</span>
+        <span class="ryn-subtitle">ESPORTS</span>
+      </div>
+      <span class="banner-rule" />
+      <span class="banner-text">{{ eventName || 'POST GAME' }}</span>
+      <template v-if="shortPatch">
+        <span class="banner-rule" />
+        <span class="banner-text banner-patch">PATCH {{ shortPatch }}</span>
+      </template>
     </div>
   </div>
 </template>
@@ -183,9 +190,11 @@ const clock = computed(() => formatGameClock(props.overview.gameTime))
   line-height: 0.9;
   color: white;
 }
-.score.win {
-  color: var(--broadcast-accent);
-  text-shadow: 0 0 18px color-mix(in oklab, var(--broadcast-accent) 60%, transparent);
+.side-blue .score.win {
+  color: var(--blue-team-color);
+}
+.side-red .score.win {
+  color: var(--red-team-color);
 }
 
 .result {
@@ -195,8 +204,11 @@ const clock = computed(() => formatGameClock(props.overview.gameTime))
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.55);
 }
-.result.win {
-  color: var(--broadcast-accent);
+.side-blue .result.win {
+  color: var(--blue-team-color);
+}
+.side-red .result.win {
+  color: var(--red-team-color);
 }
 
 /* ── Center clock ── */
@@ -230,26 +242,53 @@ const clock = computed(() => formatGameClock(props.overview.gameTime))
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  padding: 8px 0;
-  background: var(--broadcast-accent);
+  gap: 16px;
+  padding: 10px 24px;
+  background: var(--surface-soft);
+  border-top: 1px solid var(--border-color);
+}
+
+.ryn-lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  min-width: 58px;
+}
+
+.ryn-name {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  line-height: 0.9;
+  padding-left: 0.16em;
+}
+
+.ryn-subtitle {
+  color: var(--broadcast-accent-bright);
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  padding-left: 0.3em;
+}
+
+.banner-rule {
+  width: 1px;
+  height: 22px;
+  background: rgb(255 255 255 / 0.14);
 }
 
 .banner-text {
-  font-size: 17px;
+  font-size: 13px;
   font-weight: 800;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: white;
 }
+
 .banner-patch {
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  color: rgba(255, 255, 255, 0.85);
-}
-.banner-sep {
-  font-size: 15px;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.6);
+  font-weight: 700;
+  color: var(--broadcast-accent-bright);
 }
 </style>
