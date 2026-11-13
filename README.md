@@ -89,7 +89,11 @@ Open the URL printed by Vite (usually `http://localhost:5173`). The overlay will
 | `/pregame` | Champion-select scene only (established 2D presentation) |
 | `/pregame-3d` | Champion-select scene with the opt-in 3D champion stage |
 | `/pregame-hybrid` | Established champion-select layout with 3D models in the pick cards |
-| `/postgame` | Post-game scene only |
+| `/postgame` | LeagueBroadcast-driven post-game data recap |
+| `/broadcast/pre-stream` | Branded countdown and upcoming matchup |
+| `/broadcast/casters` | Two-person caster desk layout |
+| `/broadcast/interview` | Player interview camera and lower-third |
+| `/broadcast/post-game` | Standalone winner and final-score graphic |
 | `/ingame/element/<name>` | A single element at its exact production position |
 | `/ingame/elements` | Index of all element pages and their debug query params |
 
